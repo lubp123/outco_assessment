@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+
 /**
  *
  * Problem: nth Fibonacci number
@@ -17,22 +20,50 @@
 public class fibonacci {
   public static void main(String args[]) {
     TopDown prob1 = new TopDown();
-    prob1.fib(1000);
+    System.out.println(prob1.fib(1000));
 
-    Bottomup prob2 = new Bottomup();
-    prob2.fib(1000);
+    BottomUp prob2 = new BottomUp();
+    System.out.println(prob2.fib(1000));
   }
 }
 
 class TopDown {
-  public fib(n){
-    // your work here
+  HashMap<Integer, Integer> fibCache = new HashMap<Integer,Integer>(); 
+  public int fib(int n){
+  
+  //check cahe
+  if(fibCache.get(n)!=null){
+	  return fibCache.get(n); 
+  }
+  if(n ==0){
+	  return 0; 
+  }else if(n ==1){
+	  return 1; 
+  }
+  int fib1 = fib(n-2); 
+  fibCache.put(n-2, fib1);
+  int fib2 = fib(n-1); 
+ 
+  return fib1 + fib2; 
+	  
   }
 }
 
 class BottomUp {
-  public fib(n){
-    // your work here
+ //implement a global queue 
+ LinkedList<Integer> sumQueue = new LinkedList<Integer>(); 
+  public int fib(int n){
+    //initlize queue 
+	  sumQueue.push(1);
+	  sumQueue.push(1);
+	  int count = 0;
+	  while(count != n-2){
+		  int newSum = sumQueue.pop() + sumQueue.peek(); 
+		  sumQueue.addLast(newSum);
+		  count++; 
+	  }
+	 
+	 return sumQueue.removeLast();
   }
 }
 

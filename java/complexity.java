@@ -38,8 +38,8 @@ public class complexity {
  * 
  * FILL OUT HERE:
  *                   
- *            Time Complexity ==> 
- * Auxillary Space Complexity ==>
+ *            Time Complexity ==> O(m*n)
+ * Auxillary Space Complexity ==> 0(m)
  * 
  */
 
@@ -76,8 +76,8 @@ class FlatMat {
  *
  * FILL OUT HERE:
  *                   
- *            Time Complexity ==> 
- * Auxillary Space Complexity ==>
+ *            Time Complexity ==> time it takes for sorting (dep on sort method used) + O(logn)
+ * Auxillary Space Complexity ==> O(1) 
  * 
  */
 
